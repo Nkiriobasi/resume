@@ -72,7 +72,7 @@ a:hover {
 	width: 100%;
 	display: grid;
 	grid-column-gap: 40px;
-	grid-template-columns: 31% 31% 31%;
+	grid-template-columns: 46.5% 46.5%;
 	margin: 5px 0;
 }
 
