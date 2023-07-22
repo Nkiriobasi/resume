@@ -71,10 +71,17 @@ a:hover {
 
 .body .about-me {
 	width: 100%;
-	display: grid;
-	grid-column-gap: 40px;
-	grid-template-columns: 46.5% 46.5%;
-	margin: 5px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.body .about-me .about, .software {
+	width: 100%;
+}
+.body .about-me .about h2, 
+.body .about-me .software h2 {
+	font-size: 16px;
 }
 
 .body .about-me h2 {
@@ -91,27 +98,27 @@ a:hover {
 }
 
 .body .about-me .software .apps,
-.body .about-me .skills .apps {
+.body .about-me .apps {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	align-items: center;
-	padding: 0 3rem;
+	align-items: flex-start;
+	padding: 0 4px;
 }
 
 .body .about-me .software .apps .app,
-.body .about-me .skills .apps .app {
+.body .about-me .apps .app {
 	margin-bottom: 15px;
 }
 .body .about-me .software .apps .app .app-name,
-.body .about-me .skills .apps .app .app-name {
+.body .about-me .apps .app .app-name {
 	color: #363636;
 	font-weight: 500;
 	margin-bottom: 8px;
 }
 .body .about-me .software .apps .app svg,
-.body .about-me .skills .apps .app svg {
+.body .about-me .apps .app svg {
 	width: 18px;
 	margin-right: 13px;
 }
@@ -131,25 +138,49 @@ a:hover {
 	padding: 5px 120px;
 	margin-bottom: 15px;
 }
-.body .stack .row1,
-.body .stack .row2 {
+
+.body .stack .row {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+@media (max-width: 640px){
+	.body .stack .row {
+		flex-direction: column;
+	}
+}
+
+.body .stack .col {
 	width: 95%;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	justify-content: flex-start;
 	align-items: center;
-	margin-top: 1rem;
 }
 
-.body .stack .row2 {
-	width: 85%;
+.body .stack .stack-lang {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 1rem;
+
 }
 
-.body .stack .row1 div,
-.body .stack .row2 div {
+.body .stack .col div {
 	color: #363636;
 	font-weight: 700;
+	margin-left: 1rem;
+	width: 100%;
+	font-size: 16px;
 }
-.body .stack .row1 svg,
+@media (max-width: 640px){
+	.body .stack .col div {
+		font-size: 14px;
+	}
+}
+
+.body .stack .col svg,
 .body .stack .row2 svg {
 	width: 10px;
 }
@@ -205,6 +236,7 @@ a:hover {
 .body .exp-edu .edu div {
 	color: #96438f;
 	margin-bottom: 5px;
+	font-size: 18px;
 }
 
 .body .exp-edu .exp p,
@@ -332,12 +364,12 @@ a:hover {
 	display: block;
 }
 
-@media (max-width: 1500px) {
+/* @media (max-width: 1500px) {
 	.body .about-me .software .apps,
 	.body .about-me .skills .apps {
 		padding: 0 2rem;
 	}
-}
+} */
 @media (max-width: 1100px) {
 	.container {
 		padding: 0 0;
@@ -351,13 +383,14 @@ a:hover {
 		margin-bottom: 2rem;
 	}
 }
+
 @media (max-width: 800px) {
 	.container {
 		padding: 0 0;
 		margin: 0 auto;
 	}
 	.header {
-		padding: 2rem 4rem 1rem 4rem;
+		padding: 2rem 1rem 1rem 1rem;
 		background-color: #96438f;
 		color: white;
 	}
@@ -401,16 +434,13 @@ a:hover {
 	/* body section */
 
 	.body {
-		padding: 2rem 2rem 1rem 2rem;
+		padding: 2rem 1rem 1rem 1rem;
 		background-color: white;
 		color: white;
 	}
 
 	.body .about-me {
 		width: 100%;
-		display: block;
-		grid-column-gap: 40px;
-		grid-template-columns: 31% 31% 31%;
 		margin: 5px 0;
 	}
 
@@ -425,16 +455,6 @@ a:hover {
 		font-size: 14px;
 		margin-bottom: 18px;
 		padding: 0 4px;
-	}
-
-	.body .about-me .software .apps,
-	.body .about-me .skills .apps {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-		padding: 0 1rem;
 	}
 
 	.body .about-me .software .apps .app,
@@ -468,8 +488,8 @@ a:hover {
 		padding: 5px 60px;
 		margin-bottom: 15px;
 	}
-	.body .stack .row1,
-	.body .stack .row2 {
+	.body .stack .col,
+	.body .stack .col {
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
@@ -478,18 +498,18 @@ a:hover {
 		margin-top: 1rem;
 	}
 
-	.body .stack .row2 {
+	.body .stack .col {
 		width: 100%;
 	}
 
-	.body .stack .row1 div,
-	.body .stack .row2 div {
+	.body .stack .col div,
+	.body .stack .col div {
 		color: #363636;
 		font-weight: 700;
 		margin: 2px 5px;
 	}
-	.body .stack .row1 svg,
-	.body .stack .row2 svg {
+	.body .stack .col svg,
+	.body .stack .col svg {
 		width: 10px;
 	}
 	.body .exp-edu {
@@ -561,13 +581,14 @@ a:hover {
 		right: 1.2rem;
 	}
 }
+
+
 @media (max-width: 320px) {
 	.container {
 		padding: 0 0;
 		margin: 0 auto;
 	}
 	.header {
-		padding: 2rem 4rem 1rem 4rem;
 		background-color: #96438f;
 		color: white;
 	}
@@ -610,7 +631,6 @@ a:hover {
 	/* body section */
 
 	.body {
-		padding: 2rem 2rem 1rem 2rem;
 		background-color: white;
 		color: white;
 	}
@@ -632,16 +652,6 @@ a:hover {
 		font-size: 14px;
 		margin-bottom: 18px;
 		padding: 0 4px;
-	}
-
-	.body .about-me .software .apps,
-	.body .about-me .skills .apps {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-		padding: 0 0rem;
 	}
 
 	.body .about-me .software .apps .app,
@@ -672,12 +682,11 @@ a:hover {
 	.body .stack .heading {
 		width: 100%;
 		background-color: #96438f;
-		font-size: 25px;
 		padding: 5px 30px;
 		margin-bottom: 15px;
 	}
-	.body .stack .row1,
-	.body .stack .row2 {
+	.body .stack .col,
+	.body .stack .col {
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
@@ -686,19 +695,19 @@ a:hover {
 		margin-top: 1rem;
 	}
 
-	.body .stack .row2 {
+	.body .stack .col {
 		width: 100%;
 	}
 
-	.body .stack .row1 div,
-	.body .stack .row2 div {
+	.body .stack .col div,
+	.body .stack .col div {
 		color: #363636;
 		font-size: 14px;
 		font-weight: 700;
 		margin: 2px 5px;
 	}
-	.body .stack .row1 svg,
-	.body .stack .row2 svg {
+	.body .stack .col svg,
+	.body .stack .col svg {
 		width: 10px;
 	}
 	.body .exp-edu {
@@ -717,7 +726,6 @@ a:hover {
 		text-align: center;
 		width: 100%;
 		background-color: #96438f;
-		font-size: 25px;
 		padding: 5px 30px;
 		margin-bottom: 2rem;
 	}
